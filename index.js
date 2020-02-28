@@ -1,4 +1,5 @@
-const server = require('./api/server.js');
+/* jshint esversion: 6 */
+const server = require("./api/server.js");
 
 const PORT = process.env.PORT || 3300;
 server.listen(PORT, () => {
