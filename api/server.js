@@ -1,5 +1,5 @@
 /* jshint esversion: 6 */
-
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
@@ -16,6 +16,11 @@ server.use(cors());
 server.use(express.json());
 
 server.use("/api/auth", authRouter);
+server.use("/api/users", usersRouter);
 server.use("/api/jokes", authenticate, jokesRouter);
+
+server.get("/", (req, res) => {
+  res.json({ api: "running" });
+});
 
 module.exports = server;
