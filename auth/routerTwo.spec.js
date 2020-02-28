@@ -13,5 +13,13 @@ describe("auth router", function() {
         .post("/api/auth/register")
         .expect("Content-Type", /text\/html/);
     });
+    describe("POST /api/auth/register", () => {
+      it("should return 201 created", async () => {
+        const res = await request(server)
+          .post("/api/auth/register")
+          .send({ username: "testPost2", password: "testPost2" });
+        expect(res.status).toBe(201);
+      });
+    });
   });
 });

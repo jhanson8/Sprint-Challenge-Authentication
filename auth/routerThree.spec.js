@@ -13,5 +13,13 @@ describe("auth router", function() {
         .post("/api/auth/login")
         .expect("Connection", "close");
     });
+    describe("POST /api/auth/login", () => {
+      it("should return 200 logged in", async () => {
+        const res = await request(server)
+          .post("/api/auth/login")
+          .send({ username: "testPost", password: "testPost" });
+        expect(res.status).toBe(200);
+      });
+    });
   });
 });
